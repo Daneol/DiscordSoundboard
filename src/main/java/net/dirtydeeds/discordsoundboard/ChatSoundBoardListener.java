@@ -94,6 +94,8 @@ public class ChatSoundBoardListener extends ListenerAdapter {
 	                        }
 	                    }
 	                    //If the command is not list and starts with the specified command character try and play that "command" or sound file.
+	                } else if (message.startsWith(commandCharacter + "disconnect")){
+	                    	disconnectFromChannel(event.getGuild());
 	                } else if (message.startsWith(commandCharacter + "help")) {
 	                    LOG.info("Responding to help command. Requested by " + requestingUser + ".");
 	                    replyByPrivateMessage(event, "You can type any of the following commands:" +
@@ -289,6 +291,7 @@ public class ChatSoundBoardListener extends ListenerAdapter {
 	                }
 	                if (soundPlayer.isUserBanned(requestingUser)) {
 	                    replyByPrivateMessage(event, "You've been banned from using this soundboard bot.");
+	    
 	                }
 	            }
 	        }
